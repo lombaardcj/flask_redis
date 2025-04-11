@@ -11,6 +11,9 @@ services:
     #   - "6379:6379"
     networks:
       - internal_network
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
 
   fastapi:
     build:
